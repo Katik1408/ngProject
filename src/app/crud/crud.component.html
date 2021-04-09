@@ -1,4 +1,9 @@
 <div class="container">
+  <div style="margin:20px" >
+    <button class="btn btn-primary" (click)="createStudentComponent()">
+      Create Student
+    </button>
+  </div>
   <table class="table">
     <tr>
       <td>Name</td>
@@ -6,11 +11,22 @@
       <td>Age</td>
 
       <td>Place</td>
+      <td>Action</td>
     </tr>
     <tr *ngFor="let student of students">
       <td>{{ student.name }}</td>
       <td>{{ student.age }}</td>
       <td>{{ student.place }}</td>
+      <td>
+        <a (click)="deleteStudent(student._id)">
+          <i class="fas fa-trash"></i
+        ></a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a (click)="deleteStudent(student._id)">
+            
+            <i class="fas fa-edit"></i>
+          </a>
+      </td>
     </tr>
   </table>
 </div>

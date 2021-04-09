@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CategoryComponent } from './category/category.component';
 import { FormComponent } from './form/form.component';
 import { CrudComponent } from './crud/crud.component';
+import { CreatestudentComponent } from './crud/createstudent/createstudent.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
     path: 'crud',
     component: CrudComponent,
   },
+  {
+    path:'createstudent',
+    component:CreatestudentComponent
+  }
 ];
 
 @NgModule({

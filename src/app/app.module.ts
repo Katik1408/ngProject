@@ -8,6 +8,8 @@ import { CategoryComponent } from './category/category.component';
 import { FormComponent } from './form/form.component';
 import { CrudComponent } from './crud/crud.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CreatestudentComponent } from './crud/createstudent/createstudent.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,10 @@ import { HttpClientModule } from '@angular/common/http';
     CategoryComponent,
     FormComponent,
     CrudComponent,
+    CreatestudentComponent
+    
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule,ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
