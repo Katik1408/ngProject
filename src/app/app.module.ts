@@ -7,10 +7,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CategoryComponent } from './category/category.component';
 import { FormComponent } from './form/form.component';
 import { CrudComponent } from './crud/crud.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreatestudentComponent } from './crud/createstudent/createstudent.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { ErrorInterceptor } from 'src/app/_interceptors/error.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,11 +20,23 @@ import { ReactiveFormsModule } from '@angular/forms';
     CategoryComponent,
     FormComponent,
     CrudComponent,
-    CreatestudentComponent
-    
+    CreatestudentComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule,ReactiveFormsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

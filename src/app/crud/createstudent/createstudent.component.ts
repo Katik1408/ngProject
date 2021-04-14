@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { CrudService } from 'src/app/services/crud.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-createstudent',
@@ -9,7 +10,10 @@ import { CrudService } from 'src/app/services/crud.service';
 })
 export class CreatestudentComponent implements OnInit {
   public createStudent: FormGroup;
-  constructor(private crudService: CrudService) {}
+  constructor(
+    private crudService: CrudService,
+    private _snackbar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.createStudent = new FormGroup({
@@ -20,7 +24,7 @@ export class CreatestudentComponent implements OnInit {
   }
 
   createNewStudent(student) {
-   // console.log(student);
+    // console.log(student);
     this.crudService.createNewStudent(student).subscribe(
       (data) => {
         console.log(data);
@@ -28,6 +32,7 @@ export class CreatestudentComponent implements OnInit {
       (err) => {
         console.log('Inside Error ');
         console.log(err);
+        this._snackbar.open(err, '', { duration: 3000 });
       }
     );
   }
