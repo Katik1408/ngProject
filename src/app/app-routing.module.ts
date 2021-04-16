@@ -4,6 +4,10 @@ import { CategoryComponent } from './category/category.component';
 import { FormComponent } from './form/form.component';
 import { CrudComponent } from './crud/crud.component';
 import { CreatestudentComponent } from './crud/createstudent/createstudent.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from 'src/app/_guards/auth.guard';
+import {HttpGuard} from 'src/app/_guards/http.guard';
 
 const routes: Routes = [
   {
@@ -17,11 +21,21 @@ const routes: Routes = [
   {
     path: 'crud',
     component: CrudComponent,
+    canDeactivate:[HttpGuard]
   },
   {
-    path:'createstudent',
-    component:CreatestudentComponent
-  }
+    path: 'createstudent',
+    component: CreatestudentComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

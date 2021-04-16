@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorInterceptor } from 'src/app/_interceptors/error.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +23,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     FormComponent,
     CrudComponent,
     CreatestudentComponent,
+    LoginComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

@@ -32,7 +32,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             console.log(err.statusText);
             break;
           case 400:
-            this.errorMessage = err.statusText;
+            this.errorMessage = err.error;
             break;
         }
 

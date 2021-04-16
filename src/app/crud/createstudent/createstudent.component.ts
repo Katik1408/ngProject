@@ -28,6 +28,9 @@ export class CreatestudentComponent implements OnInit {
     this.crudService.createNewStudent(student).subscribe(
       (data) => {
         console.log(data);
+        this._snackbar.open('Sucessfully Created Student', '', {
+          duration: 5000,
+        });
       },
       (err) => {
         console.log('Inside Error ');
