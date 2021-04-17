@@ -7,7 +7,7 @@ import { CreatestudentComponent } from './crud/createstudent/createstudent.compo
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from 'src/app/_guards/auth.guard';
-import {HttpGuard} from 'src/app/_guards/http.guard';
+import { HttpGuard } from 'src/app/_guards/http.guard';
 
 const routes: Routes = [
   {
@@ -21,7 +21,7 @@ const routes: Routes = [
   {
     path: 'crud',
     component: CrudComponent,
-    canDeactivate:[HttpGuard]
+    canDeactivate: [HttpGuard],
   },
   {
     path: 'createstudent',
@@ -35,6 +35,11 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'lazy',
+    loadChildren: () =>
+      import('src/app/lazy/lazy.module').then((m) => m.LazyModule),
   },
 ];
 
